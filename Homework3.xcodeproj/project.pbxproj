@@ -12,6 +12,7 @@
 		60A18B291F86F2EC00BA92CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60A18B281F86F2EC00BA92CD /* Assets.xcassets */; };
 		60A18B2C1F86F2EC00BA92CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A18B2A1F86F2EC00BA92CD /* LaunchScreen.storyboard */; };
 		9015BD387353BAB581B357A2 /* Pods_Homework2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159CDDCA4BC87EA42E70DB73 /* Pods_Homework2.framework */; };
+		CEAE025F1F990E4300AB62FB /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE025E1F990E4300AB62FB /* TagsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		60A18B281F86F2EC00BA92CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60A18B2B1F86F2EC00BA92CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60A18B2D1F86F2EC00BA92CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEAE025E1F990E4300AB62FB /* TagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		DA8DF7A902D98E68EBA191DC /* Pods-Homework2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Homework2/Pods-Homework2.release.xcconfig"; sourceTree = "<group>"; };
 		DC373CD842120869A7BAA01B /* Pods-Homework2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Homework2/Pods-Homework2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,7 @@
 				60A18B281F86F2EC00BA92CD /* Assets.xcassets */,
 				60A18B2A1F86F2EC00BA92CD /* LaunchScreen.storyboard */,
 				60A18B2D1F86F2EC00BA92CD /* Info.plist */,
+				CEAE025E1F990E4300AB62FB /* TagsTableViewController.swift */,
 			);
 			path = Homework2;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAE025F1F990E4300AB62FB /* TagsTableViewController.swift in Sources */,
 				60A18B221F86F2EC00BA92CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
