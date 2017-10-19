@@ -42,7 +42,7 @@ class PodcastTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "podcastInfoCell", for: indexPath)
-        var podcastInfo = podcastArray![indexPath.row] as PodcastInfo
+        let podcastInfo = podcastArray![indexPath.row] as PodcastInfo
         cell.textLabel?.text = podcastInfo.description
         return cell
     }
