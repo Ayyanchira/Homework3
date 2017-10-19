@@ -53,14 +53,16 @@ class PodcastTableViewController: UITableViewController {
         
         cell.podcastTitle.text = podcastInfo.title
         
-        if let podcastDescription = podcastInfo.description{
+        if let podcastDescription = podcastInfo.description,
+            podcastDescription != ""{
             cell.descriptionTextView.text = podcastDescription
             cell.descriptionTextView.isHidden = false
         }else{
             cell.descriptionTextView.isHidden = true
         }
         
-        if let logoString = podcastInfo.logo_url{
+        if let logoString = podcastInfo.logo_url,
+            logoString != ""{
             let imageURL = URL(string: logoString)
             cell.logoImageView.isHidden = false
             cell.logoImageView.sd_setImage(with: imageURL, completed: nil)
