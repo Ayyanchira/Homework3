@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PodcastTableViewController: UITableViewController {
 
@@ -41,9 +42,32 @@ class PodcastTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "podcastInfoCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "podcastInfoCell", for: indexPath) as! PodcastInfoTableViewCell
         let podcastInfo = podcastArray![indexPath.row] as PodcastInfo
-        cell.textLabel?.text = podcastInfo.description
+        if indexPath.row%2 == 0{
+            cell.contentView.backgroundColor = UIColor.cyan
+        }
+        else{
+            cell.contentView.backgroundColor = UIColor.yellow
+        }
+        
+        cell.podcastTitle.text = podcastInfo.title
+        
+        if let podcastDescription = podcastInfo.description{
+            cell.descriptionTextView.text = podcastDescription
+            cell.descriptionTextView.isHidden = false
+        }else{
+            cell.descriptionTextView.isHidden = true
+        }
+        
+        if let logoString = podcastInfo.logo_url{
+            let imageURL = URL(string: logoString)
+            cell.logoImageView.isHidden = false
+            cell.logoImageView.sd_setImage(with: imageURL, completed: nil)
+        }
+        else{
+            cell.logoImageView.isHidden = true
+        }
         return cell
     }
  
