@@ -75,10 +75,31 @@ class TagsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCell = tableView.cellForRow(at: indexPath)
         let selectedtag:Tag = tagDictionary[(selectedCell?.textLabel?.text)!]!
-        let usageId = selectedtag.usage
-        print("tag for \(selectedtag.title) is \(usageId) \n")
+        getPodcastsFor(tag: selectedtag)
+    }
+    
+    func getPodcastsFor(tag:Tag) {
+        Alamofire.request("https://gpodder.net/api/2/tag/\(tag.tag)/10.json").responseJSON { response in
+            if let json = response.result.value {
+                print("JSON: \(json)")
+                if let podcastArray = json as? [[String:Any]]
+                {
+                    var podcastObjectArray:[PodcastInfo] = []
+                    for podcast in podcastArray {
+                        let podcastObject = PodcastInfo(dictionary: podcast as NSDictionary)
+                        podcastObjectArray.append(podcastObject!)
+                    }
+                    self.performSegue(withIdentifier: "PodcastList", sender: podcastObjectArray)
+                }
+            }
+        }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Prepare for segue called")
+        let podcastTableViewController = segue.destination as! PodcastTableViewController
+        podcastTableViewController.podcastArray = sender as? [PodcastInfo]
+    }
     /*
     // MARK: - Navigation
 

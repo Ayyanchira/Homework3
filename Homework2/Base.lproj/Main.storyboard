@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Podcasts-->
+        <!--Top Tags-->
         <scene sceneID="HAw-Ih-dmx">
             <objects>
                 <tableViewController id="sLd-bD-j9q" customClass="TagsTableViewController" customModule="Homework3" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,11 +31,42 @@
                             <outlet property="delegate" destination="sLd-bD-j9q" id="hrj-YT-stS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Podcasts" id="kvo-9P-LY8"/>
+                    <navigationItem key="navigationItem" title="Top Tags" id="kvo-9P-LY8"/>
+                    <connections>
+                        <segue destination="55C-tx-MFp" kind="show" identifier="PodcastList" id="XQM-Hf-KqI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVH-Nh-U2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="477.60000000000002" y="74.212893553223395"/>
+        </scene>
+        <!--Podcast Table View Controller-->
+        <scene sceneID="WdE-rB-LBT">
+            <objects>
+                <tableViewController id="55C-tx-MFp" customClass="PodcastTableViewController" customModule="Homework3" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XHe-BE-E3m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="podcastInfoCell" rowHeight="70" id="dHP-z3-hda">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dHP-z3-hda" id="5EB-ok-I0K">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="55C-tx-MFp" id="eCr-Kr-uPH"/>
+                            <outlet property="delegate" destination="55C-tx-MFp" id="fGZ-7Z-V5q"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5H4-hj-CS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1380" y="73.313343328335833"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N4m-R4-rEG">

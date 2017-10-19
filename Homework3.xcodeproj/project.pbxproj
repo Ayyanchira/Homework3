@@ -13,6 +13,8 @@
 		60A18B2C1F86F2EC00BA92CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A18B2A1F86F2EC00BA92CD /* LaunchScreen.storyboard */; };
 		9015BD387353BAB581B357A2 /* Pods_Homework2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 159CDDCA4BC87EA42E70DB73 /* Pods_Homework2.framework */; };
 		CE1BD6071F9916A800B71AF4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BD6061F9916A800B71AF4 /* Tag.swift */; };
+		CE1BD60A1F9931FE00B71AF4 /* PodcastInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BD6091F9931FE00B71AF4 /* PodcastInfo.swift */; };
+		CE1BD60C1F9937FB00B71AF4 /* PodcastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1BD60B1F9937FB00B71AF4 /* PodcastTableViewController.swift */; };
 		CEAE025F1F990E4300AB62FB /* TagsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE025E1F990E4300AB62FB /* TagsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		60A18B2B1F86F2EC00BA92CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60A18B2D1F86F2EC00BA92CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE1BD6061F9916A800B71AF4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		CE1BD6091F9931FE00B71AF4 /* PodcastInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodcastInfo.swift; sourceTree = "<group>"; };
+		CE1BD60B1F9937FB00B71AF4 /* PodcastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastTableViewController.swift; sourceTree = "<group>"; };
 		CEAE025E1F990E4300AB62FB /* TagsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsTableViewController.swift; sourceTree = "<group>"; };
 		DA8DF7A902D98E68EBA191DC /* Pods-Homework2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Homework2/Pods-Homework2.release.xcconfig"; sourceTree = "<group>"; };
 		DC373CD842120869A7BAA01B /* Pods-Homework2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Homework2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Homework2/Pods-Homework2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 				60A18B2A1F86F2EC00BA92CD /* LaunchScreen.storyboard */,
 				60A18B2D1F86F2EC00BA92CD /* Info.plist */,
 				CEAE025E1F990E4300AB62FB /* TagsTableViewController.swift */,
+				CE1BD60B1F9937FB00B71AF4 /* PodcastTableViewController.swift */,
 			);
 			path = Homework2;
 			sourceTree = "<group>";
@@ -85,6 +90,7 @@
 		CE1BD6021F99167B00B71AF4 /* Model Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CE1BD6081F9931BA00B71AF4 /* Podcast */,
 				CE1BD6031F99168600B71AF4 /* Top Tags */,
 			);
 			path = "Model Classes";
@@ -96,6 +102,14 @@
 				CE1BD6061F9916A800B71AF4 /* Tag.swift */,
 			);
 			path = "Top Tags";
+			sourceTree = "<group>";
+		};
+		CE1BD6081F9931BA00B71AF4 /* Podcast */ = {
+			isa = PBXGroup;
+			children = (
+				CE1BD6091F9931FE00B71AF4 /* PodcastInfo.swift */,
+			);
+			path = Podcast;
 			sourceTree = "<group>";
 		};
 		E7E2A8E0770DD19E9CDB2E1F /* Pods */ = {
@@ -240,6 +254,8 @@
 			files = (
 				CE1BD6071F9916A800B71AF4 /* Tag.swift in Sources */,
 				CEAE025F1F990E4300AB62FB /* TagsTableViewController.swift in Sources */,
+				CE1BD60A1F9931FE00B71AF4 /* PodcastInfo.swift in Sources */,
+				CE1BD60C1F9937FB00B71AF4 /* PodcastTableViewController.swift in Sources */,
 				60A18B221F86F2EC00BA92CD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
