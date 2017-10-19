@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import Alamofire
 
 class TagsTableViewController: UITableViewController {
+
+    var tagDictionary = [String:Tag]()
+    var tagNames = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //fetch top tags
+        loadTags()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,62 +26,58 @@ class TagsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func loadTags() {
+        Alamofire.request("https://gpodder.net/api/2/tags/20.json").responseJSON { response in
+            if let json = response.result.value {
+                print("JSON: \(json)")
+                if let tagsArray = json as? [[String:Any]]
+                {
+                    for tag in tagsArray {
+                        let tagName = tag["tag"] as! String
+                        let tagTitle = tag["title"] as! String
+                        let tagUsage = tag["usage"] as! Int
+                        let tagObject = Tag(tag: tagName, title: tagTitle, usage: tagUsage)
+                        self.tagDictionary[tagName] = tagObject
+                        self.tagNames.append(tagName)
+                    }
+                    self.tableView.reloadData()
+                    
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        if tagDictionary.count>0{return 1}
+        else {return 0}
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return tagDictionary.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        cell.textLabel?.text = tagNames[indexPath.row]
+        
+        
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+ 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell = tableView.cellForRow(at: indexPath)
+        let selectedtag:Tag = tagDictionary[(selectedCell?.textLabel?.text)!]!
+        let usageId = selectedtag.usage
+        print("tag for \(selectedtag.title) is \(usageId) \n")
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation
